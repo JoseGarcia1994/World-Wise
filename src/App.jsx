@@ -1,6 +1,8 @@
-import './App.css';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
+polyfillCountryFlagEmojis()
+
 import Home from './pages/Home.jsx';
 import Product from './pages/Product.jsx';
 import Pricing from './pages/Pricing.jsx';
@@ -8,6 +10,7 @@ import Login from './pages/Login.jsx';
 import AppLayout from './pages/AppLayout.jsx';
 import PageNotFound from './pages/PageNotFound.jsx';
 import CityList from './components/CityList.jsx';
+import CountryList from './components/CountryList.jsx';
 
 const BASE_URL = 'http://localhost:8000'
 function App() {
@@ -41,7 +44,7 @@ function App() {
         <Route path="/app" element={<AppLayout />}>
           <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
           <Route path='cities' element={<CityList cities={cities} isLoading={isLoading} />} />
-          <Route path='countries' element={<p>Countries Component</p>} />
+          <Route path='countries' element={<CountryList cities={cities} isLoading={isLoading} />} />
           <Route path='form' element={<p>Form Component</p>} />
         </Route>
         <Route path="*" element={<PageNotFound />} />

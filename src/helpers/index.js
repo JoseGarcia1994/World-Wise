@@ -7,5 +7,4 @@ const formatDate = (date) =>
 
 export {
   formatDate,
-  
 }
