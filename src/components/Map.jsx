@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useState, useEffect } from 'react';
 import { useCities } from '../context/CitiesContext.jsx';
 import useGeolocation from '../hooks/useGeolocation.js';
+import useUrlPosition from '../hooks/useUrlPosition.js';
 import ChangeCenter from './ChangeCenter.jsx';
 import DetectClick from './DetectClick.jsx';
 import Button from './Button.jsx';
@@ -11,11 +12,8 @@ import styles from './Map.module.css';
 const Map = () => {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]);
-  const [searchParams, setSearchParams] = useSearchParams();
   const {isLoading: isLoadingPosition, position: geolocationPosition, getPosition} = useGeolocation();
-
-  const mapLat = searchParams.get("lat");
-  const mapLng = searchParams.get("lng");
+  const [mapLat, mapLng] = useUrlPosition();
 
   useEffect(() => {
     if (mapLat && mapLng) setMapPosition([mapLat, mapLng])
