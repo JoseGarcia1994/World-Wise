@@ -1,4 +1,3 @@
-import { useSearchParams } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useState, useEffect } from 'react';
 import { useCities } from '../context/CitiesContext.jsx';
