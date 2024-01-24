@@ -13,6 +13,7 @@ const convertToEmoji = (countryCode) => {
     return String.fromCodePoint(...codePoints);
 }
 
+// Never Display user password, this was only done for learning purpose
 const fakeUser = {
   name: "Jack",
   email: "jack@example.com",
