@@ -13,7 +13,16 @@ const convertToEmoji = (countryCode) => {
     return String.fromCodePoint(...codePoints);
 }
 
+const fakeUser = {
+  name: "Jack",
+  email: "jack@example.com",
+  password: "qwerty",
+  avatar: "https://i.pravatar.cc/100?u=zz",
+};
+
+
 export {
   formatDate,
-  convertToEmoji
+  convertToEmoji, 
+  fakeUser
 }
