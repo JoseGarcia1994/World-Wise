@@ -14,6 +14,7 @@ import CountryList from './components/CountryList.jsx';
 import Form from './components/Form.jsx';
 import { CitiesProvider } from './context/CitiesContext.jsx';
 import { AuthProvider } from './context/FakeAuthContext.jsx';
+import ProtectedRoutes from './pages/ProtectedRoutes.jsx';
 
 function App() {
 
@@ -26,7 +27,13 @@ function App() {
             <Route path="/product" element={<Product />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/app" element={<AppLayout />}>
+            <Route 
+              path="/app" 
+              element={
+                <ProtectedRoutes>
+                  <AppLayout />
+                </ProtectedRoutes>
+              }>
               <Route index element={<Navigate replace to='cities' />} />
               <Route path='cities' element={<CityList />} />
               <Route path='cities/:id' element={<City />} />
